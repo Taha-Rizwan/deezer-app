@@ -12,7 +12,7 @@ const Track = (Search, callback) => {
         title: body.data[0].title,
         preview: body.data[0].preview,
         artist: body.data[0].artist.name,
-        image: body.data[0].artist.picture_medium,
+        image: body.data[0].album.cover_medium,
         link: body.data[0].link
       }      
       )

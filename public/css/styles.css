@@ -32,7 +32,7 @@ body{
 }
 .nav a{
   text-decoration: none;
-  color:  #3c4251;
+  color:   #a5afd7;
   margin-right: 50px;
 }
 .main{
@@ -57,7 +57,13 @@ body{
   color: #a5afd7;
   font-weight: 1000;
 }
+ h1 {
+  font-size: 32px;
+  color:   #a5afd7;
+  margin-bottom: 10px;
+}
  p {
+   margin-top: 10px;
   font-size: 20px;
   color:   #a5afd7;
 }
@@ -87,5 +93,22 @@ audio::-webkit-media-controls-panel {
 }
 audio{
   visibility: hidden;
+}
+
+@media only screen and (max-width: 640px) {
+  .main button {
+    width: 65px;
+    font-size: 15px;
+    text-align: center;
+  }
+  .main input {
+    margin-right: 20px;
+    margin-left: 50px;
+  }
+  p{
+    
+    font-size: 15px;
+    text-align: center;
+  }
 }
 

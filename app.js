@@ -3,7 +3,7 @@ const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
 const Track = require('./utils/track')
-
+const Artist = require('./utils/artist')
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -24,6 +24,13 @@ app.use(express.static(publicDirectoryPath))
 app.get('', (req,res) => {
   res.render('index', {
     title: "Deezer",
+    name: 'Taha Rizwan'
+  })
+})
+
+app.get('/artist', (req,res) => {
+  res.render('artist', {
+    title: 'Deezer',
     name: 'Taha Rizwan'
   })
 })
@@ -49,6 +56,29 @@ app.get('/track', (req,res) => {
   }))
  
 })
+
+app.get('/artists', (req,res) => {
+  if(!req.query.Search) {
+    return res.send(
+      {error: 'Please provide an anime!'}
+    )
+  }
+  Artist(req.query.Search, ((error, {title, fans, link, image, albums}) => {
+    if (error) {
+      return res.send(error)
+    }
+    res.send({
+      title,
+      fans,
+      albums,
+      link,
+      image,
+      Search: req.query.Search
+    })
+  }))
+ 
+})
+
 
 
 app.listen(port, () => {
